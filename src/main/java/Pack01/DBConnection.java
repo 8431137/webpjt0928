@@ -15,7 +15,7 @@ public class DBConnection {
 		Connection conn = null;		
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/db01";
+			String url = "jdbc:mysql://192.168.0.53:13306/db01";
 			conn = DriverManager.getConnection(url, "root", "1234");
 		} catch (Exception e) {
 			e.printStackTrace();

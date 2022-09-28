@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,12 +10,20 @@
 <body>
 <%
 String userId = (String)session.getAttribute("userId");
+String winner = (String)request.getAttribute("win");
+
 %>
 <%=userId %>님 투표가 완료되었습니다 !
 <h3> 호랑이 : ${hoCount} </h3>
 <h3> 독수리 : ${docCount} </h3>
 <h3> 코끼리 : ${koCount} </h3>
-<h3> 투표 남은 인원 : ${nullCount} </h3>
+<h1> 투표 남은 인원 : ${nullCount} </h1>
+
+<%
+if(winner.length() >= 2){
+	out.println("<h1>당선동물 : "+ winner + "</h1>");
+}
+%>
 <a href = "t3">로그아웃</a>
 </body>
 </html>

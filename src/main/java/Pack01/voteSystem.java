@@ -27,7 +27,11 @@ public class voteSystem {
 	      String ho = "호랑이";
 	      String doc = "독수리";
 	      String ko = "코끼리";
+	      String win = "";
+	      int max=0;
+	      
 	      int hoCount = 0, docCount = 0, koCount = 0, nullCount =0;
+	      int []list = {hoCount, docCount, koCount, nullCount}; 
 	      
       try {
 
@@ -60,25 +64,67 @@ public class voteSystem {
 
  	         
  			// 투표 결과 views로 넘겨주기 -----------------------------------------------------
- 			pstmt = con.prepareStatement(voteResult);
- 			System.out.println("투표 결과 views 넘겨주기 성공");
- 			rs = pstmt.executeQuery();
- 			System.out.println("투표 결과 views 넘겨주기 실행");
- 			while(rs.next()){
- 				if(ho.equals(rs.getString("voteName")))
- 					hoCount++;
- 				else if(doc.equals(rs.getString("voteName")))
- 					docCount++;
- 				else if(ko.equals(rs.getString("voteName")))
- 					koCount++;
- 				else 
- 					nullCount++;
- 			}
- 	         model.addAttribute("hoCount", hoCount);
- 	         model.addAttribute("docCount", docCount);
- 	         model.addAttribute("koCount", koCount);
- 	         model.addAttribute("nullCount", nullCount);
+// 			pstmt = con.prepareStatement(voteResult);
+// 			System.out.println("투표 결과 views 넘겨주기 성공");
+// 			rs = pstmt.executeQuery();
+// 			System.out.println("투표 결과 views 넘겨주기 실행");
+// 			while(rs.next()){
+// 				if(ho.equals(rs.getString("voteName")))
+// 					hoCount++;
+// 				else if(doc.equals(rs.getString("voteName")))
+// 					docCount++;
+// 				else if(ko.equals(rs.getString("voteName")))
+// 					koCount++;
+// 				else 
+// 					nullCount++;
+// 				
+// 				// 당선확률 계산
+// 			}
+// 	         model.addAttribute("hoCount", hoCount);
+// 	         model.addAttribute("docCount", docCount);
+// 	         model.addAttribute("koCount", koCount);
+// 	         model.addAttribute("nullCount", nullCount);
 
+  			// 투표 결과 views로 넘겨주기 -----------------------------------------------------
+  			pstmt = con.prepareStatement(voteResult);
+  			System.out.println("투표 결과 views 넘겨주기 성공");
+  			rs = pstmt.executeQuery();
+  			System.out.println("투표 결과 views 넘겨주기 실행");
+  			while(rs.next()){
+  				if(ho.equals(rs.getString("voteName")))
+  					hoCount++;
+  				else if(doc.equals(rs.getString("voteName")))
+  					docCount++;
+  				else if(ko.equals(rs.getString("voteName")))
+  					koCount++;
+  				else 
+  					nullCount++;
+  				
+  				System.out.println(list);
+  				// 당선확률 계산
+  				
+  			}
+  			if(nullCount == 0) {
+ 	             max = hoCount;
+ 	             win = "호랑이";
+ 	              if(docCount > max) {
+ 	                  max = docCount;
+ 	                  win = "독수리";
+ 	              }
+ 	              
+ 	              if(koCount > max) {
+ 	                  max = koCount;
+ 	                 win = "코끼리";
+ 	              }
+ 	          }
+ 			 model.addAttribute("win", win);
+	         model.addAttribute("hoCount", hoCount);
+	         model.addAttribute("docCount", docCount);
+	         model.addAttribute("koCount", koCount);
+	         model.addAttribute("nullCount", nullCount);
+ 	         
+ 	         
+ 	         
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
