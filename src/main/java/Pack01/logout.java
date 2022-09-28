@@ -4,16 +4,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class logoutController {
-	@RequestMapping("/tt3")
-	
-	public String func033() {
-		System.out.println("이건 뜨겠지?"); 
-		return "logOut";
-	}
+public class logout {
+   @RequestMapping("/t3")
+   public String func03(HttpServletRequest request, HttpSession session){
+	   session.invalidate();
+        return "redirect:index.jsp";
+   }
 }
-
-
