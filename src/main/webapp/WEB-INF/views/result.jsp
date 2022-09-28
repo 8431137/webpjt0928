@@ -13,11 +13,17 @@ String userId = (String)session.getAttribute("userId");
 String winner = (String)request.getAttribute("win");
 
 %>
-<%=userId %>님 투표가 완료되었습니다 !
-<h3> 호랑이 : ${hoCount} </h3>
-<h3> 독수리 : ${docCount} </h3>
-<h3> 코끼리 : ${koCount} </h3>
-<h1> 투표 남은 인원 : ${nullCount} </h1>
+<%=userId %>님 투표가 완료되었습니다 !<br/>
+<p>
+<form method="get">
+	<fieldset>
+	<legend>투표결과</legend>
+		<h3> 호랑이 : ${hoCount} </h3>
+		<h3> 독수리 : ${docCount} </h3>
+		<h3> 코끼리 : ${koCount} </h3>
+	</fieldset>
+	<h3> 남은 투표 수 : ${nullCount} </h3>
+</form>
 
 <%
 if(winner.length() >= 2){
