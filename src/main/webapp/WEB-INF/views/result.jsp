@@ -8,16 +8,12 @@
 </head>
 <body>
 <%
-String userId = request.getParameter("id");
+String userId = (String)session.getAttribute("userId");
 %>
 <%=userId %>님 투표가 완료되었습니다 !
 <h3> 호랑이 : ${hoCount} </h3>
 <h3> 독수리 : ${docCount} </h3>
 <h3> 코끼리 : ${koCount} </h3>
 <h3> 투표 남은 인원 : ${nullCount} </h3>
-
-<form action ="tt3" method="get">
-<a href="logout.jsp">로그아웃</a>
-</form>
 </body>
 </html>
