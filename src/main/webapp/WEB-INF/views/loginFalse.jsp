@@ -13,11 +13,7 @@ pageEncoding="UTF-8"%>
 </head>
 
 <body>
-<form action ="t2" method="post">
-	<input type="radio" name="season" value="호랑이">호랑이
-	<input type="radio" name="season" value="코끼리">코끼리
-	<input type="radio" name="season" value="독수리">독수리
-	<input type="submit" value="결과보기">
-</form>
+투표가 완료되었습니다 !<p/>
+ 
 <br>
 </body>
