@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-결과
+투표가 완료되었습니다 !
+결과창이 나오기 전까지 기다려주세요.
 </body>
 </html>
