@@ -24,7 +24,7 @@ public class voteSystem {
 	    	 con = DBConnection.getConnection();
 	         System.out.println("접속성공");
 	         //투표 결과 반영
-	         pstmt = con.prepareStatement(sql2);
+	         pstmt = con.prepareStatement(sql1);
  	         rs = pstmt.executeQuery();
  	         System.out.println("투표 결과 1로 셋팅 완료");
  	        
@@ -39,4 +39,23 @@ public class voteSystem {
 		}
       return "result";
    }
+   
+   @RequestMapping("/t3")
+   public String func03(HttpServletRequest request, HttpSession session){
+	      Connection con = null;
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
+   try {
+	    	 con = DBConnection.getConnection();
+	         System.out.println("접속성공");
+	         //투표 결과 반영	       
+	         rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println("조회 완료");
+		}
+   return "result";
+}
+
 }

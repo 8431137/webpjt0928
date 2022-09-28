@@ -19,5 +19,4 @@ pageEncoding="UTF-8"%>
 	<input type="radio" name="voteName" value="독수리">독수리
 	<input type="submit" value="결과보기">
 </form>
-<br>
 </body>
