@@ -19,9 +19,6 @@ public class login {
       String sql = "select * from vote where id = ? and pwd = ?";
      
  		try {
- 			// session 생성
-			 session.setAttribute("userId", userId);
-			 session.setMaxInactiveInterval(2700);
  	         // pstmt 생성
  	    	 con = DBConnection.getConnection();
  	         System.out.println("접속성공");
@@ -36,6 +33,9 @@ public class login {
  	        	userId = rs.getString("id");
  	        	userPwd = rs.getString("pwd");
  	            System.out.println("로그인 성공");
+ 	 			// session 생성
+ 				 session.setAttribute("userId", userId);
+ 				 session.setMaxInactiveInterval(2700);
  	         } else{ // 로그인 실패
  	            System.out.println("로그인 실패");
  	            return "redirect:index.jsp";
