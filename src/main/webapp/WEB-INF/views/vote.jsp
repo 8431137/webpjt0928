@@ -12,5 +12,8 @@ pageEncoding="UTF-8"%>
 	<input type="radio" name="vote" value="독수리">독수리
 	<input type="submit" value="결과보기">
 </form>
+<form action ="tt3" method="get">
+<a href="logout.jsp">로그아웃</a>
+</form>
 <br>
 </body>
